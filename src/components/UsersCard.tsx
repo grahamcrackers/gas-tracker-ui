@@ -6,7 +6,11 @@ export const UsersCard: FC = () => {
         <div className="card">
             <header className="card-header">
                 <p className="card-header-title">Users</p>
-                <a href="#" className="card-header-icon" aria-label="more options">
+                <a
+                    href="#"
+                    className="card-header-icon"
+                    aria-label="more options"
+                >
                     <span className="icon">
                         <i className="fas fa-angle-down" aria-hidden="true" />
                     </span>

@@ -1,6 +1,9 @@
 import React, { FC, useEffect, useState } from 'react';
-import { getUsers } from '../api/users';
+import { getUsers, deleteUser, updateUser } from '../api/users';
 import { User } from '../Models/Users';
+import { DeleteButton } from './DeleteButton';
+import { UpdateButton } from './UpdateButton';
+import { NavLink } from 'react-router-dom';
 
 export const UsersTable: FC = () => {
     const [users, setUsers] = useState<User[]>([]);
@@ -11,6 +14,7 @@ export const UsersTable: FC = () => {
             setUsers(data);
         });
     }, []);
+
     return (
         <table className="table">
             <thead>
@@ -20,6 +24,8 @@ export const UsersTable: FC = () => {
                     <th>Last</th>
                     <th>Username</th>
                     <th>Email</th>
+                    <th />
+                    <th />
                 </tr>
             </thead>
             <tbody>
@@ -32,11 +38,38 @@ export const UsersTable: FC = () => {
                         email
                     }: User) => (
                         <tr key={userId}>
-                            <td>{userId}</td>
+                            <td><NavLink to={`/users/${userId}`}>{userId}</NavLink></td>
                             <td>{firstName}</td>
                             <td>{lastName}</td>
                             <td>{username}</td>
                             <td>{email}</td>
+                            <td>
+                                <UpdateButton
+                                    handleClick={() => 
+                                        updateUser({
+                                            userId,
+                                            firstName,
+                                            lastName,
+                                            username,
+                                            email
+                                        } as User).then(response => {})
+                                    }
+                                />
+                            </td>
+                            <td>
+                                <DeleteButton
+                                    handleClick={() =>
+                                        deleteUser(userId).then(response => {
+                                            console.log(response.status);
+                                            const newUsers = users.filter(
+                                                user => user.userId !== userId
+                                            );
+                                            console.log(newUsers);
+                                            setUsers(newUsers);
+                                        })
+                                    }
+                                />
+                            </td>
                         </tr>
                     )
                 )}

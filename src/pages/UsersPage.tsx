@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { UsersCard } from '../components/UsersCard';
-import { AddUserForm } from '../components/Forms/AddUserForm/index';
+import { AddUserForm } from '../components/Forms/AddUserForm';
 
-export const HomePage: FC = () => {
+export const UsersPage: FC = () => {
     return (
-        <section id="homePage" className="section">
+        <section id="usersPage" className="section">
             <div className="tile is-ancestor">
                 <div className="tile is-vertical is-parent">
                     <div className="tile is-child">
