@@ -5,6 +5,7 @@ import { LoginPage } from '../pages/LoginPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { UserPage } from '../pages/UserPage';
 import { UsersPage } from '../pages/UsersPage';
+import { VehiclePage } from '../pages/VehiclePage';
 
 export const Routes: FC = () => {
     return (
@@ -12,6 +13,7 @@ export const Routes: FC = () => {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/users" component={UsersPage} />
             <Route exact path="/users/:userId" component={UserPage} />
+            <Route exact path="/users/:userId/vehicles/:vehicleId" component={VehiclePage} />
             <Route exact path="/login" component={LoginPage} />
             <Route component={NotFoundPage} />
         </Switch>
