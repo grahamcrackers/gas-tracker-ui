@@ -31,7 +31,7 @@ export const AddTripForm: FC<Props> = ({ vehicleId }) => {
         { setSubmitting }: FormikActions<TripValues>
     ) => {
         const newTrip: Trip = Object.assign({ ...values });
-        newTrip.vehicleId = vehicleId;
+        newTrip.id = vehicleId;
 
         addTrip(newTrip).then(({ data }) => {
             setSubmitting(false);

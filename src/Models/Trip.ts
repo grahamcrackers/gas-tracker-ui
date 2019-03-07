@@ -1,5 +1,7 @@
+import { Vehicle } from "./Vehicle";
+
 export interface Trip {
-  tripId: number;
+  id: number;
   date: string;
   odometer: number;
   tripMeter: number;

@@ -20,14 +20,16 @@ export const VehiclePage: FC<Props> = ({ match }) => {
     }, []);
 
     return (
-        <section id="vehiclePage" className="section">
+        <div id="vehiclePage">
             <div className="tile is-ancestor">
                 <div className="tile is-vertical is-parent">
                     <div className="tile is-child">
-                        <TripsCard vehicle={vehicle} />
+                        {vehicle.trips && vehicle.trips.length > 0 && (
+                            <TripsCard vehicle={vehicle} />
+                        )}
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };

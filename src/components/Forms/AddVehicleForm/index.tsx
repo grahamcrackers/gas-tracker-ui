@@ -6,7 +6,7 @@ import { Vehicle } from '../../../Models/Vehicle';
 import { FieldInput } from '../FieldInput';
 
 interface Props {
-    userId: number;
+    handleSubmit(values: any, setSubmitting: (isSubmitting: boolean) => void): void;
 }
 
 interface AddVehicleFormValues {
@@ -14,7 +14,7 @@ interface AddVehicleFormValues {
     model: string;
 }
 
-export const AddVehicleForm: FC<Props> = ({ userId }) => {
+export const AddVehicleForm: FC<Props> = ({ handleSubmit }) => {
     const [formValues] = useState<AddVehicleFormValues>({
         make: '',
         model: ''
@@ -24,12 +24,7 @@ export const AddVehicleForm: FC<Props> = ({ userId }) => {
         <Formik
             initialValues={formValues}
             onSubmit={(values, { setSubmitting }) => {
-                const newVehicle: Vehicle = Object.assign({ ...values })
-                newVehicle.userId = userId;
-
-                addVehicle(newVehicle).then(({ data }) => {
-                    setSubmitting(false);
-                });
+                handleSubmit(values, setSubmitting);
             }}
             validationSchema={object().shape({
                 make: string().required('Required'),

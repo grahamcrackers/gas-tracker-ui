@@ -4,7 +4,7 @@ import { AddUserForm } from '../components/Forms/AddUserForm';
 
 export const UsersPage: FC = () => {
     return (
-        <section id="usersPage" className="section">
+        <div id="usersPage">
             <div className="tile is-ancestor">
                 <div className="tile is-vertical is-parent">
                     <div className="tile is-child">
@@ -15,6 +15,6 @@ export const UsersPage: FC = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };

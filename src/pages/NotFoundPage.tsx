@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 export const NotFoundPage: FC = () => {
     return (
-        <section className="section">
+        <div id="notFoundPage">
             <p>404Page</p>
-        </section>
+        </div>
     );
 };

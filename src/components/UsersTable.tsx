@@ -31,14 +31,14 @@ export const UsersTable: FC = () => {
             <tbody>
                 {users.map(
                     ({
-                        userId,
+                        id,
                         firstName,
                         lastName,
                         username,
                         email
                     }: User) => (
-                        <tr key={userId}>
-                            <td><NavLink to={`/users/${userId}`}>{userId}</NavLink></td>
+                        <tr key={id}>
+                            <td><NavLink to={`/users/${id}`}>{id}</NavLink></td>
                             <td>{firstName}</td>
                             <td>{lastName}</td>
                             <td>{username}</td>
@@ -47,7 +47,7 @@ export const UsersTable: FC = () => {
                                 <UpdateButton
                                     handleClick={() => 
                                         updateUser({
-                                            userId,
+                                            id,
                                             firstName,
                                             lastName,
                                             username,
@@ -59,10 +59,10 @@ export const UsersTable: FC = () => {
                             <td>
                                 <DeleteButton
                                     handleClick={() =>
-                                        deleteUser(userId).then(response => {
+                                        deleteUser(id).then(response => {
                                             console.log(response.status);
                                             const newUsers = users.filter(
-                                                user => user.userId !== userId
+                                                user => user.id !== id
                                             );
                                             console.log(newUsers);
                                             setUsers(newUsers);

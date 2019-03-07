@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 
 export const LoginPage: FC = () => {
     return (
-        <section className="hero">
+        <div id="loginPage" className="hero">
             <div className="hero-body">
                 <div className="container has-text-centered">
                     <div className="column is-4 is-offset-4">
@@ -54,6 +54,6 @@ export const LoginPage: FC = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };

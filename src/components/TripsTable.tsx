@@ -18,14 +18,14 @@ export const TripsTable: FC<{ trips: Trip[] }> = ({ trips }) => {
             <tbody>
                 {trips.map(
                     ({
-                        vehicleId,
+                        id,
                         date,
                         tripMeter,
                         totalGallons,
                         totalFuelCost
                     }: Trip) => (
-                        <tr key={vehicleId}>
-                            <td>{vehicleId}</td>
+                        <tr key={id}>
+                            <td>{id}</td>
                             <td>{date}</td>
                             <td>{tripMeter}</td>
                             <td>{totalGallons}</td>

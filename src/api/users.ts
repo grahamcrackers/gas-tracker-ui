@@ -10,6 +10,10 @@ export const getUser = (id: number): AxiosPromise<User> => {
     return axios.get(`${TRACKER_API}/users/${id}`);
 };
 
+export const getUserVehicles = (id: number): AxiosPromise<User> => {
+    return axios.get(`${TRACKER_API}/users/${id}/vehicles`);
+};
+
 export const addUser = (user: User): AxiosPromise => {
     return axios.post(`${TRACKER_API}/users`, user);
 };

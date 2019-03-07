@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Vehicle } from '../Models/Vehicle';
+import { NavLink } from 'react-router-dom';
 
 interface Props {
     vehicle: Vehicle;
@@ -11,14 +12,15 @@ export const VehicleCard: FC<Props> = ({ vehicle }) => {
     return (
         <div className="card">
             <header className="card-header">
-                <p className="card-header-title">{`${make} ${model}`}</p>
+                <p className="card-header-title">
+                    <NavLink
+                        to={`/users/${vehicle.userId}/vehicles/${vehicle.id}`}
+                    >{`${make} ${model}`}</NavLink>
+                </p>
             </header>
             <div className="card-content">
-                <p className="title">
-                    “There are two hard things in computer science: cache
-                    invalidation, naming things, and off-by-one errors.”
-                </p>
-                <p className="subtitle">Jeff Atwood</p>
+                <p className="title">Title</p>
+                <p className="subtitle">Subtitle</p>
             </div>
         </div>
     );
